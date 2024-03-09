@@ -6,6 +6,9 @@ const app = express();
 //DB Connection
 connectDB();
 
+//Initializing Middleware
+app.use(express.json({extended: false}));
+
 app.get('/', (req, res) => res.json({msg: "ContactKeeper API"}))
 
 
