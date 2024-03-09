@@ -1,9 +1,9 @@
+const config = require("config");
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
-const config = require("config");
 
 const User = require("../models/User");
 
@@ -59,13 +59,13 @@ router.post(
         {
           expiresIn: 3600,
         },
-        (err, token) => {
-          if (err) throw err;
+        (error, token) => {
+          if (error) throw error;
           res.json({ token });
         }
       );
-    } catch (err) {
-      console.error(err.message);
+    } catch (error) {
+      console.error(error.message);
       res.status(500);
     }
   }

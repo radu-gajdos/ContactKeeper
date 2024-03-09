@@ -16,7 +16,7 @@ router.get("/", auth, async (req, res) => {
     const user = await User.findById(req.user.id).select("-password");
     res.json(user);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res.status(500).send("Server error");
   }
 });
@@ -67,13 +67,13 @@ router.post(
         {
           expiresIn: 3600,
         },
-        (err, token) => {
-          if (err) throw err;
+        (error, token) => {
+          if (error) throw error;
           res.json({ token });
         }
       );
     } catch (error) {
-      console.error(err.message);
+      console.error(error.message);
       res.status(500).send("Server error");
     }
   }
