@@ -9,7 +9,7 @@ const Register = (props) => {
 
     const { setAlert } = alertContext;
     const { register, error, clearErrors, isAuthenticated } = authContext;
-    
+
     const navigate = useNavigate();
 
     useEffect(() => {

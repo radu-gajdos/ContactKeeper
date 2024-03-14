@@ -10,12 +10,12 @@ const Navbar = ({ title, icon }) => {
     const contactContext = useContext(ContactContext);
 
     const { isAuthenticated, logoutUser, user } = authContext;
-    const {clearContacts} = contactContext;
+    const { clearContacts } = contactContext;
 
     const onLogout = () => {
         logoutUser();
         clearContacts();
-        window.location.href = '/login';
+        window.location.href = "/login";
     };
 
     const authLinks = (
